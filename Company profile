@@ -6,7 +6,6 @@ function getCompanyProfile {
   var url = 'https://api.companieshouse.gov.uk/company/' + number;
   
   var headers = {
-    "Content-Type" : "application/json",
     "Authorization": "Basic " + Utilities.base64Encode(token + ":" + password)
   };
 
