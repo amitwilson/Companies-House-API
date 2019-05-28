@@ -1,0 +1,19 @@
+function getCompanyProfile {
+  var token = 'your_token_here';
+  var password = "";
+  var number = "Company Registration Number here"; // 8 digits long. Best to use a string as these often start with 0.
+  
+  var url = 'https://api.companieshouse.gov.uk/company/' + number;
+  
+  var headers = {
+    "Content-Type" : "application/json",
+    "Authorization": "Basic " + Utilities.base64Encode(token + ":" + password)
+  };
+
+  var response = UrlFetchApp.fetch(url, {
+    headers: headers
+  });
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  Logger.log(data);
+}
